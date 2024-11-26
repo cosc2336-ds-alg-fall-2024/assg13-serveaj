@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "test successfully builds",
+      "setup": "make clean",
+      "run": "make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 50
+    },
+    {
+      "name": "test task1",
+      "setup": "make",
+      "run": "./test --list-test-names-only [task1] | grep . && ./test [task1]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 50
+    },
+  ]
+}
