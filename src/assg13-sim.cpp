@@ -12,8 +12,10 @@
  * Assignment C++ Standard Template Library STL
  */
 #include <iostream>
+#include <map>
 #include <queue>
 #include <stack>
+#include <unordered_map>
 using namespace std;
 
 /** main entry point
@@ -58,6 +60,29 @@ void demonstrateQueueAndStack()
   {
     cout << myStack.top() << " ";
     myStack.pop();
+  }
+  cout << endl;
+}
+
+// Task 2: Maps and Ordered Maps
+void demonstrateMaps()
+{
+  map<int, string> orderedMap;
+  unordered_map<int, string> unorderedMap;
+
+  // Displaying ordered map
+  cout << "Ordered Map: ";
+  for (const auto& pair : orderedMap)
+  {
+    cout << pair.first << ":" << pair.second << " ";
+  }
+  cout << endl;
+
+  // Displaying unordered map
+  cout << "Unordered Map: ";
+  for (const auto& pair : unorderedMap)
+  {
+    cout << pair.first << ":" << pair.second << " ";
   }
   cout << endl;
 }
