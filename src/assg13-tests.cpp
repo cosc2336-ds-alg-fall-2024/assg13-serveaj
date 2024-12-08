@@ -10,9 +10,11 @@
  *
  * Assignment Standard Template Library STL.
  */
-#include <list>
-#include <iostream>
 #include "catch.hpp"
+#include <iostream>
+#include <list>
+#include <queue>
+#include <stack>
 using namespace std;
 
 /** Task 1 example test task.  Demonstarte using an STL list
@@ -32,4 +34,43 @@ TEST_CASE("<list> test list STL container", "[task1]")
   CHECK(l1.size() == 1);
 }
 
+TEST_CASE("STL Queue and Stack", "[queue_stack]")
+{
+  queue<int> customQueue;
+  stack<int> customStack;
 
+  SECTION("Queue operations")
+  {
+    customQueue.push(10);
+    customQueue.push(20);
+    customQueue.push(30);
+
+    CHECK(customQueue.size() == 3);
+    CHECK(customQueue.front() == 10);
+
+    customQueue.pop();
+    CHECK(customQueue.front() == 20);
+    CHECK(customQueue.size() == 2);
+
+    customQueue.pop();
+    customQueue.pop();
+    CHECK(customQueue.empty());
+  }
+
+  SECTION("Stack operations")
+  {
+    customStack.push(1);
+    customStack.push(2);
+    customStack.push(3);
+
+    CHECK(customStack.size() == 3);
+    CHECK(customStack.top() == 3);
+
+    customStack.pop();
+    CHECK(customStack.top() == 2);
+
+    customStack.pop();
+    customStack.pop();
+    CHECK(customStack.empty());
+  }
+}

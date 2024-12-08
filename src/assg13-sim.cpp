@@ -12,6 +12,8 @@
  * Assignment C++ Standard Template Library STL
  */
 #include <iostream>
+#include <queue>
+#include <stack>
 using namespace std;
 
 /** main entry point
@@ -33,4 +35,29 @@ int main(int argc, char** argv)
 
   // return 0 to indicate successful completion
   return 0;
+}
+
+// Task 1: Queue and Stack
+void demonstrateQueueAndStack()
+{
+  queue<int> myQueue;
+  stack<int> myStack;
+
+  // Displaying queue elements
+  cout << "Queue elements: ";
+  while (!myQueue.empty())
+  {
+    cout << myQueue.front() << " ";
+    myQueue.pop();
+  }
+  cout << endl;
+
+  // Displaying stack elements
+  cout << "Stack elements: ";
+  while (!myStack.empty())
+  {
+    cout << myStack.top() << " ";
+    myStack.pop();
+  }
+  cout << endl;
 }
