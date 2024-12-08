@@ -15,6 +15,7 @@
 #include <list>
 #include <map>
 #include <queue>
+#include <set>
 #include <stack>
 #include <unordered_map>
 #include <vector>
@@ -162,5 +163,30 @@ void demonstrateListAndVector()
   }
 
   // new line
+  cout << endl;
+}
+
+/**
+ * @brief Demonstrates the usage of Set data structure using STL.
+ *
+ * This function creates a set of integers and displays its elements,
+ * this will show us how to iterate through a set.
+ *
+ * @returns void
+ */
+void demonstrateSet()
+{
+  // create set of integers
+  set<int> mySet;
+
+  // displaying set
+  cout << "Set elements: ";
+  for (int value : mySet)
+  {
+    // print line
+    cout << value << " ";
+  }
+
+  // new value
   cout << endl;
 }

@@ -15,6 +15,7 @@
 #include <list>
 #include <map>
 #include <queue>
+#include <set>
 #include <stack>
 #include <unordered_map>
 #include <vector>
@@ -144,5 +145,25 @@ TEST_CASE("STL List and Vector", "[list_vector]")
 
     customVector.pop_back();
     CHECK(customVector.size() == 3);
+  }
+}
+
+TEST_CASE("STL Set", "[set]")
+{
+  set<int> customSet = {3, 1, 4, 1, 5};
+
+  SECTION("Set operations")
+  {
+    CHECK(customSet.size() == 4);
+    CHECK(customSet.count(3) == 1);
+    CHECK(customSet.count(6) == 0);
+
+    customSet.insert(6);
+    CHECK(customSet.size() == 5);
+    CHECK(customSet.count(6) == 1);
+
+    customSet.erase(1);
+    CHECK(customSet.size() == 4);
+    CHECK(customSet.count(1) == 0);
   }
 }
