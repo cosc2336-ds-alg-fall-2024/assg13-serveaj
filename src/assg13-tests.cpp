@@ -17,6 +17,7 @@
 #include <queue>
 #include <stack>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 /** Task 1 example test task.  Demonstarte using an STL list
@@ -110,5 +111,38 @@ TEST_CASE("STL Maps and Ordered Maps", "[maps]")
     unorderedMap.erase(3);
     CHECK(unorderedMap.size() == 2);
     CHECK(unorderedMap.count(3) == 0);
+  }
+}
+
+TEST_CASE("STL List and Vector", "[list_vector]")
+{
+  list<int> customList = {1, 2, 3};
+  vector<int> customVector = {10, 20, 30};
+
+  SECTION("List operations")
+  {
+    customList.push_back(4);
+    customList.push_front(0);
+
+    CHECK(customList.size() == 5);
+    CHECK(customList.front() == 0);
+    CHECK(customList.back() == 4);
+
+    customList.pop_back();
+    customList.pop_front();
+    CHECK(customList.size() == 3);
+  }
+
+  SECTION("Vector operations")
+  {
+    customVector.push_back(40);
+    customVector[0] = 100;
+
+    CHECK(customVector.size() == 4);
+    CHECK(customVector[0] == 100);
+    CHECK(customVector.back() == 40);
+
+    customVector.pop_back();
+    CHECK(customVector.size() == 3);
   }
 }
