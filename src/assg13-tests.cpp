@@ -167,3 +167,26 @@ TEST_CASE("STL Set", "[set]")
     CHECK(customSet.count(1) == 0);
   }
 }
+
+TEST_CASE("STL Priority Queue", "[priority_queue]")
+{
+  priority_queue<int> customPriorityQueue;
+
+  SECTION("Priority Queue operations")
+  {
+    customPriorityQueue.push(10);
+    customPriorityQueue.push(30);
+    customPriorityQueue.push(20);
+
+    CHECK(customPriorityQueue.size() == 3);
+    CHECK(customPriorityQueue.top() == 30);
+
+    customPriorityQueue.pop();
+    CHECK(customPriorityQueue.top() == 20);
+    CHECK(customPriorityQueue.size() == 2);
+
+    customPriorityQueue.pop();
+    customPriorityQueue.pop();
+    CHECK(customPriorityQueue.empty());
+  }
+}

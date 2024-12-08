@@ -190,3 +190,32 @@ void demonstrateSet()
   // new value
   cout << endl;
 }
+
+/**
+ * @brief Demonstrates the usage of Priority Queue data structure using STL.
+ *
+ * This function creates a priority queue of integers, displays its
+ * elements, and show us how to access and remove elements from
+ * the priority queue.
+ *
+ * @returns void
+ */
+void demonstratePriorityQueue()
+{
+  // create a priority queue
+  priority_queue<int> myPQ;
+
+  // displaying priority queue
+  cout << "Priority Queue elements: ";
+  while (!myPQ.empty())
+  {
+    // print the top element
+    cout << myPQ.top() << " ";
+
+    // remove the top element
+    myPQ.pop();
+  }
+
+  // new line
+  cout << endl;
+}
