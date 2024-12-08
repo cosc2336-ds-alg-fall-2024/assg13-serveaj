@@ -21,6 +21,13 @@
 #include <vector>
 using namespace std;
 
+#define task1
+#define task2
+#define task3
+#define task4
+#define task5
+#define task6
+
 /** Task 1 example test task.  Demonstarte using an STL list
  * container.
  */
@@ -38,6 +45,10 @@ TEST_CASE("<list> test list STL container", "[task1]")
   CHECK(l1.size() == 1);
 }
 
+/**
+ * Task 1 Queue and stack
+ */
+#ifdef task1
 TEST_CASE("STL Queue and Stack", "[queue_stack]")
 {
   queue<int> customQueue;
@@ -78,7 +89,12 @@ TEST_CASE("STL Queue and Stack", "[queue_stack]")
     CHECK(customStack.empty());
   }
 }
+#endif
 
+/**
+ * Task 2 Maps and Ordered maps
+ */
+#ifdef task2
 TEST_CASE("STL Maps and Ordered Maps", "[maps]")
 {
   map<int, string> orderedMap;
@@ -115,10 +131,48 @@ TEST_CASE("STL Maps and Ordered Maps", "[maps]")
   }
 }
 
+// Additional STL Map Tests
+TEST_CASE("STL Map - Extended", "[map]")
+{
+  map<int, string> customMap;
+  customMap = {{1, "A"}, {2, "B"}, {3, "C"}};
+
+  SECTION("Find and Count")
+  {
+    auto it = customMap.find(2);
+    CHECK(it != customMap.end());
+    CHECK(it->second == "B");
+
+    CHECK(customMap.count(3) == 1);
+    CHECK(customMap.count(5) == 0);
+  }
+
+  SECTION("Emplace and Swap")
+  {
+    customMap.emplace(4, "D");
+    CHECK(customMap.size() == 4);
+    CHECK(customMap[4] == "D");
+
+    map<int, string> newMap;
+    newMap = {{10, "X"}, {20, "Y"}};
+    customMap.swap(newMap);
+
+    CHECK(customMap.size() == 2);
+    CHECK(customMap[10] == "X");
+  }
+}
+#endif
+
+/**
+ * task 3 List and Vector
+ */
+#ifdef task3
 TEST_CASE("STL List and Vector", "[list_vector]")
 {
-  list<int> customList = {1, 2, 3};
-  vector<int> customVector = {10, 20, 30};
+  list<int> customList;
+  customList = {1, 2, 3};
+  vector<int> customVector;
+  customVector = {10, 20, 30};
 
   SECTION("List operations")
   {
@@ -148,9 +202,77 @@ TEST_CASE("STL List and Vector", "[list_vector]")
   }
 }
 
+// Additional STL List Tests
+TEST_CASE("STL List - Extended", "[list]")
+{
+  list<int> customList;
+  customList = {10, 20, 30, 40, 50};
+
+  SECTION("Insert and Remove Elements")
+  {
+    auto it = customList.begin();
+    advance(it, 2); // Move iterator to the 3rd element
+    customList.insert(it, 25);
+
+    CHECK(customList.size() == 6);
+    CHECK(*next(customList.begin(), 2) == 25);
+
+    it = customList.begin();
+    advance(it, 3); // Move iterator to the 4th element
+    customList.erase(it);
+
+    CHECK(customList.size() == 5);
+    CHECK(*next(customList.begin(), 3) == 40);
+  }
+
+  SECTION("Reverse and Sort")
+  {
+    customList.reverse();
+    CHECK(customList.front() == 50);
+    CHECK(customList.back() == 10);
+
+    customList.sort();
+    CHECK(customList.front() == 10);
+    CHECK(customList.back() == 50);
+  }
+}
+
+// Additional STL Vector Tests
+TEST_CASE("STL Vector - Extended", "[vector]")
+{
+  vector<int> customVector;
+  customVector = {5, 15, 25, 35, 45};
+
+  SECTION("Resize and Reserve")
+  {
+    customVector.resize(10, 100);
+    CHECK(customVector.size() == 10);
+    CHECK(customVector[6] == 100);
+
+    customVector.reserve(20);
+    CHECK(customVector.capacity() >= 20);
+  }
+
+  SECTION("Erase and Clear")
+  {
+    customVector.erase(customVector.begin() + 2);
+    CHECK(customVector.size() == 4);
+    CHECK(customVector[2] == 35);
+
+    customVector.clear();
+    CHECK(customVector.empty());
+  }
+}
+#endif
+
+/**
+ * Task 4 set
+ */
+#ifdef task4
 TEST_CASE("STL Set", "[set]")
 {
-  set<int> customSet = {3, 1, 4, 1, 5};
+  set<int> customSet;
+  customSet = {3, 1, 4, 1, 5};
 
   SECTION("Set operations")
   {
@@ -168,6 +290,29 @@ TEST_CASE("STL Set", "[set]")
   }
 }
 
+// Additional STL Set Tests
+TEST_CASE("STL Set - Extended", "[set]")
+{
+  set<int> customSet;
+  customSet = {10, 20, 30, 40};
+
+  SECTION("Lower and Upper Bound")
+  {
+    auto it = customSet.lower_bound(25);
+    CHECK(it != customSet.end());
+    CHECK(*it == 30);
+
+    it = customSet.upper_bound(20);
+    CHECK(it != customSet.end());
+    CHECK(*it == 30);
+  }
+}
+#endif
+
+/**
+ * Task 5 Priority Queue
+ */
+#ifdef task5
 TEST_CASE("STL Priority Queue", "[priority_queue]")
 {
   priority_queue<int> customPriorityQueue;
@@ -190,3 +335,100 @@ TEST_CASE("STL Priority Queue", "[priority_queue]")
     CHECK(customPriorityQueue.empty());
   }
 }
+
+// Additional STL Priority Queue Tests
+TEST_CASE("STL Priority Queue - Extended", "[priority_queue]")
+{
+  priority_queue<int> customPQ;
+
+  SECTION("Custom Comparator")
+  {
+    auto cmp = [](int left, int right) { return left > right; };
+    priority_queue<int, vector<int>, decltype(cmp)> minPQ(cmp);
+
+    minPQ.push(20);
+    minPQ.push(10);
+    minPQ.push(30);
+
+    CHECK(minPQ.top() == 10);
+
+    minPQ.pop();
+    CHECK(minPQ.top() == 20);
+  }
+}
+
+#endif
+
+/**
+ * Task 6 Sorting
+ */
+#ifdef task6
+TEST_CASE("STL Sorting and Algorithms", "[sorting_algorithms]")
+{
+  vector<int> customVector;
+  customVector = {30, 10, 20, 50, 40};
+
+  SECTION("Sorting")
+  {
+    sort(customVector.begin(), customVector.end());
+    CHECK(customVector == vector<int>{10, 20, 30, 40, 50});
+  }
+
+  SECTION("Reverse Sorting")
+  {
+    sort(customVector.rbegin(), customVector.rend());
+    CHECK(customVector == vector<int>{50, 40, 30, 20, 10});
+  }
+
+  SECTION("Using find algorithm")
+  {
+    auto it = find(customVector.begin(), customVector.end(), 20);
+    CHECK(it != customVector.end());
+    CHECK(*it == 20);
+
+    it = find(customVector.begin(), customVector.end(), 100);
+    CHECK(it == customVector.end());
+  }
+
+  SECTION("Count Algorithm")
+  {
+    customVector = {1, 2, 3, 4, 1, 1, 5};
+    CHECK(count(customVector.begin(), customVector.end(), 1) == 3);
+    CHECK(count(customVector.begin(), customVector.end(), 6) == 0);
+  }
+}
+
+// Additional STL Algorithms
+TEST_CASE("STL Algorithms - Extended", "[algorithms]")
+{
+  vector<int> customVector;
+  customVector = {10, 20, 30, 40, 50};
+
+  SECTION("Accumulate")
+  {
+    int sum = accumulate(customVector.begin(), customVector.end(), 0);
+    CHECK(sum == 150);
+  }
+
+  SECTION("Replace")
+  {
+    replace(customVector.begin(), customVector.end(), 30, 99);
+    CHECK(customVector[2] == 99);
+  }
+
+  SECTION("Unique")
+  {
+    customVector = {10, 10, 20, 30, 30, 30, 40};
+    auto it = unique(customVector.begin(), customVector.end());
+    customVector.erase(it, customVector.end());
+
+    CHECK(customVector == vector<int>{10, 20, 30, 40});
+  }
+
+  SECTION("Partition")
+  {
+    auto it = partition(customVector.begin(), customVector.end(), [](int n) { return n % 20 == 0; });
+    CHECK(distance(customVector.begin(), it) == 2);
+  }
+}
+#endif

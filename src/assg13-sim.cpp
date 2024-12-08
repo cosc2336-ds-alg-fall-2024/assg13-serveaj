@@ -11,6 +11,7 @@
  *
  * Assignment C++ Standard Template Library STL
  */
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <map>
@@ -20,27 +21,6 @@
 #include <unordered_map>
 #include <vector>
 using namespace std;
-
-/** main entry point
- * Main entry point for debugging functions.
- *
- * @param argc The command line argument count, the number of arguments
- *   provided by user on the command line.
- * @param argv An array of char* old style c-strings.  Each argv[x]
- *   that is passed in holds one of the command line arguments provided
- *   by the user to the program when started.
- *
- * @returns int Returns 0 to indicate successfull completion of program,
- *   and a non-zero value to indicate an error code.
- */
-int main(int argc, char** argv)
-{
-  // add code for debugging here
-  cout << "Hello Assignment STL" << endl;
-
-  // return 0 to indicate successful completion
-  return 0;
-}
 
 /**
  * @brief Demonstrates the usage of Queue and Stack data structures using STL.
@@ -218,4 +198,61 @@ void demonstratePriorityQueue()
 
   // new line
   cout << endl;
+}
+
+/**
+ * @brief Demonstrates STL Sorting on a Vector.
+ *
+ * This function creates a vector of integers, sorts it in ascending
+ * order, and displays the sorted elements.
+ *
+ * @returns void
+ */
+void demonstrateSTLSorting()
+{
+  // new vector
+  vector<int> myVector;
+
+  // sorting the vector ascending order
+  sort(myVector.begin(), myVector.end());
+
+  // display the vector elemets
+  cout << "Sorted vector: ";
+  for (int value : myVector)
+  {
+    // print value
+    cout << value << " ";
+  }
+
+  // new line
+  cout << endl;
+}
+
+/** main entry point
+ * Main entry point for debugging functions.
+ *
+ * @param argc The command line argument count, the number of arguments
+ *   provided by user on the command line.
+ * @param argv An array of char* old style c-strings.  Each argv[x]
+ *   that is passed in holds one of the command line arguments provided
+ *   by the user to the program when started.
+ *
+ * @returns int Returns 0 to indicate successfull completion of program,
+ *   and a non-zero value to indicate an error code.
+ */
+int main(int argc, char** argv)
+{
+  // add code for debugging here
+  cout << "Hello Assignment STL" << endl;
+
+  // demonstrate functions
+  demonstrateQueueAndStack();
+  demonstrateMaps();
+  demonstrateListAndVector();
+  demonstrateSet();
+  demonstratePriorityQueue();
+  demonstrateSTLSorting();
+
+  // return 0 to indicate successful completion
+  return 0;
 }
