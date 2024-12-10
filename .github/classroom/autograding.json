@@ -8,7 +8,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 50
+      "points": 10
     },
     {
       "name": "test task1",
@@ -18,7 +18,107 @@
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 50
+      "points": 10
+    },
+    {
+      "name": "test queue_stack",
+      "setup": "make",
+      "run": "./test --list-test-names-only [queue_stack] | grep . && ./test [queue_stack]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+    {
+      "name": "test maps",
+      "setup": "make",
+      "run": "./test --list-test-names-only [maps] | grep . && ./test [maps]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test map",
+      "setup": "make",
+      "run": "./test --list-test-names-only [map] | grep . && ./test [map]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test list_vector",
+      "setup": "make",
+      "run": "./test --list-test-names-only [list_vector] | grep . && ./test [list_vector]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test list",
+      "setup": "make",
+      "run": "./test --list-test-names-only [list] | grep . && ./test [list]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test vector",
+      "setup": "make",
+      "run": "./test --list-test-names-only [vector] | grep . && ./test [vector]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test set",
+      "setup": "make",
+      "run": "./test --list-test-names-only [set] | grep . && ./test [set]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test priority_queue",
+      "setup": "make",
+      "run": "./test --list-test-names-only [priority_queue] | grep . && ./test [priority_queue]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test sorting_algorithms",
+      "setup": "make",
+      "run": "./test --list-test-names-only [sorting_algorithms] | grep . && ./test [sorting_algorithms]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "test algorithms",
+      "setup": "make",
+      "run": "./test --list-test-names-only [algorithms] | grep . && ./test [algorithms]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
     }
   ]
 }
